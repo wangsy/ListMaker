@@ -1,11 +1,14 @@
 package com.wangsy.listmaker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+<<<<<<< Updated upstream
 import android.text.InputType
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.wangsy.listmaker.databinding.MainActivityBinding
+import com.wangsy.listmaker.ui.detail.ListDetailActivity
 import com.wangsy.listmaker.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -45,5 +48,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         builder.create().show()
+    }
+
+    private fun showListDetail(list: TaskList) {
+        // 1
+        val listDetailIntent = Intent(this, ListDetailActivity::class.java)
+        // 2
+        listDetailIntent.putExtra(INTENT_LIST_KEY, list)
+        // 3
+        startActivity(listDetailIntent)
     }
 }
