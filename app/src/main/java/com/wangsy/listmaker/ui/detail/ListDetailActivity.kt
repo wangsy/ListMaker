@@ -3,7 +3,7 @@ package com.wangsy.listmaker.ui.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.wangsy.listmaker.R
-import com.wangsy.listmaker.ui.detail.ui.detail.ListDetailFragment
+import com.wangsy.listmaker.ui.detail.ListDetailFragment
 
 class ListDetailActivity : AppCompatActivity() {
 

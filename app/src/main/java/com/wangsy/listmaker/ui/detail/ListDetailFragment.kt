@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.wangsy.listmaker.R
-import com.wangsy.listmaker.ui.detail.R
-import com.wangsy.listmaker.ui.detail.ui.detail.ListDetailViewModel
+import com.wangsy.listmaker.ui.detail.ListDetailViewModel
 
 class ListDetailFragment : Fragment() {
 
