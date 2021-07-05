@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.wangsy.listmaker.databinding.MainActivityBinding
 import com.wangsy.listmaker.models.TaskList
+import androidx.appcompat.app.AlertDialog
 import com.wangsy.listmaker.ui.main.MainFragment
 import com.wangsy.listmaker.ui.main.MainViewModel
 import com.wangsy.listmaker.ui.main.MainViewModelFactory
@@ -61,6 +62,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 4
+        binding.fabButton.setOnClickListener {
+            showCreateListDialog()
+        }
+    }
+
+    private fun showCreateListDialog() {
+        val dialogTitle = getString(R.string.name_of_list)
+        val positiveButtonTitle = getString(R.string.create_list)
+
+        val builder = AlertDialog.Builder(this)
+        val listTitleEditText = EditText(this)
+        listTitleEditText.inputType = InputType.TYPE_CLASS_TEXT
+
+        builder.setTitle(dialogTitle)
+        builder.setView(listTitleEditText)
+
+        builder.setPositiveButton(positiveButtonTitle) { dialog, _ ->
+            dialog.dismiss()
+        }
+
         builder.create().show()
     }
 
