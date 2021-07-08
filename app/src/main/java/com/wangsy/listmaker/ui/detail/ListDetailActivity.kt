@@ -34,7 +34,6 @@ class ListDetailActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this,  MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(this))).get(MainViewModel::class.java)
         viewModel.list = intent.getParcelableExtra(MainActivity.INTENT_LIST_KEY)!!
 
-        // 2
         title = viewModel.list.name
 
         if (savedInstanceState == null) {
@@ -44,23 +43,17 @@ class ListDetailActivity : AppCompatActivity() {
         }
     }
     private fun showCreateTaskDialog() {
-        //1
         val taskEditText = EditText(this)
         taskEditText.inputType = InputType.TYPE_CLASS_TEXT
 
-        //2
         AlertDialog.Builder(this)
             .setTitle(R.string.task_to_add)
             .setView(taskEditText)
             .setPositiveButton(R.string.add_task) { dialog, _ ->
-                // 3
                 val task = taskEditText.text.toString()
-                // 4
                 viewModel.addTask(task)
-                //5
                 dialog.dismiss()
             }
-            //6
             .create()
             .show()
     }
@@ -74,5 +67,4 @@ class ListDetailActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, intent)
         super.onBackPressed()
     }
-
 }

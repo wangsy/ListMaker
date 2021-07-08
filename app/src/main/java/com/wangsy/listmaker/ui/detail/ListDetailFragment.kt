@@ -26,16 +26,13 @@ class ListDetailFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
-        // 1
         binding = ListDetailFragmentBinding.inflate(inflater, container, false)
-
-        // 2
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProvider(requireActivity(),MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(requireActivity()))).get(MainViewModel::class.java)
         val list: TaskList? = arguments?.getParcelable(MainActivity.INTENT_LIST_KEY)
         if (list != null) {
@@ -50,7 +47,5 @@ class ListDetailFragment : Fragment() {
         viewModel.onTaskAdded = {
             recyclerAdapter.notifyDataSetChanged()
         }
-
     }
-
 }
